@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "Web Retriever",
+  "name_for_human": "Web Retriever",
+  "description_for_human": "This is a tool that retrieves web pages for you.",
+  "description_for_model": "This is a tool that retrieves web page content for you,\nbut only web pages that have static html content available at initial render, so web sites like medium, wiki etc... should work...",
+  "api": {
+    "type": "openapi",
+    "url": "https://web-retriever-draganjovanovich.vercel.app/openapi.json",
+    "has_user_authentication": false
+  },
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://web-retriever-draganjovanovich.vercel.app/icon.png",
+  "contact_email": "your_email@example.com",
+  "legal_info_url": "https://example.com"
+}
