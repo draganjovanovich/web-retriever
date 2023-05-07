@@ -38,6 +38,7 @@ def truncate_paragraphs(paragraphs, max_length):
 
 @app.get("/get-web-page/", operation_id="getWebPage", summary="It will return a web page content")
 async def get_page(url: str = Query(..., description="url of a web page")) -> Response:
+    print(url)
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
@@ -93,7 +94,7 @@ def custom_openapi():
     )
     openapi_schema["servers"] = [
         {
-            "url": "https://{PROJECT_NAME}-{ACCOUNT_NAME}.vercel.app",
+            "url": f"https://{PROJECT_NAME}-{ACCOUNT_NAME}.vercel.app",
         },
     ]
     openapi_schema["tags"] = [
