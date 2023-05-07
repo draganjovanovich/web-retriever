@@ -68,7 +68,7 @@ Do not repeat same images over and over again!
 
     except Exception as e:
         print(e)
-        error_message = "Sorry, the web page is not currently available. You should report this message to the user!"
+        error_message = f"Sorry, the web page is not currently available. {e}\nYou should report this message to the user!"
         return JSONResponse(content={"error": error_message}, status_code=500)
 
 @app.get("/icon.png", include_in_schema=False)
