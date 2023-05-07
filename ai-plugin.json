@@ -2,7 +2,7 @@
   "schema_version": "v1",
   "name_for_model": "Web Retriever",
   "name_for_human": "Web Retriever",
-  "description_for_human": "This is a plugin that retrieves web pages for you,\nbut only web pages that have static html content available at initial render, so web sites like medium, wiki etc... should work...\nAlso it only returns first ~1300 chars from the page.\nEXAMPLE USAGE: \"Please summarize this web page for me: https://en.wikipedia.org/wiki/Lorem_ipsuma\"",
+  "description_for_human": "This plugin retrieves parts of web page content for you,\nbut only web pages that have static html content, so web sites like medium, wiki etc... should work...\nAlso it only returns first ~1300 chars from the page.\nEXAMPLE USAGE: \"Please summarize this web page for me: https://en.wikipedia.org/wiki/Lorem_ipsuma\"",
   "description_for_model": "This is a plugin that retrieves web page content for you",
   "api": {
     "type": "openapi",
