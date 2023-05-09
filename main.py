@@ -175,7 +175,7 @@ async def get_url_content(url: str = Query(..., description="url to fetch conten
 
         yaml_text = f"{text_yaml}\n{images_yaml}"
         text = f"""{yaml_text}
-I now know the answer{IMAGES_SUFIX if len(images) > 0 else "."}
+Thought: I now know the answer{IMAGES_SUFIX if len(images) > 0 else "."}
 """
         return Response(content=text, media_type="text/plain")
 
