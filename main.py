@@ -17,7 +17,9 @@ ACCOUNT_NAME = "draganjovanovich"
 CHAR_LIMIT = 1585
 IMAGES_CHAR_LIMIT = 300
 
-IMAGES_SUFIX = """, and I will also include images in the format like this: ![](image url)"""
+IMAGES_SUFIX = """, and I will also include images formatted like this:
+![](image url)
+"""
 
 app = FastAPI()
 
@@ -162,7 +164,8 @@ async def get_url_content(url: str = Query(..., description="url to fetch conten
         if len(text) > CHAR_LIMIT:
             text = text[:CHAR_LIMIT]
 
-        text_yaml = "text_content: |\n"
+        MULTILINE_SYM = "|" if content_type != "applicaion/json" else ""
+        text_yaml = f"text_content: {MULTILINE_SYM}\n"
         for line in text.split('\n'):
             text_yaml += f"  {line}\n"
 
@@ -172,7 +175,7 @@ async def get_url_content(url: str = Query(..., description="url to fetch conten
 
         yaml_text = f"{text_yaml}\n{images_yaml}"
         text = f"""{yaml_text}
-I now know the final answer{IMAGES_SUFIX if len(images) > 0 else "."}
+I now know the answer{IMAGES_SUFIX if len(images) > 0 else "."}
 """
         return Response(content=text, media_type="text/plain")
 
