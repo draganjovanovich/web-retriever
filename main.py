@@ -17,9 +17,7 @@ ACCOUNT_NAME = "draganjovanovich"
 CHAR_LIMIT = 1585
 IMAGES_CHAR_LIMIT = 300
 
-IMAGES_SUFIX = """, and I will include images in the summary formatted like this:
-![](image url)
-"""
+IMAGES_SUFIX = """, and I will also include images in the format like this: ![](image url)"""
 
 app = FastAPI()
 
@@ -107,7 +105,6 @@ async def get_url_content(url: str = Query(..., description="url to fetch conten
 
         content = response.content
         content_type = detect_content_type(content)
-        print(content_type)
         text = ""
         images = []
 
@@ -133,8 +130,6 @@ async def get_url_content(url: str = Query(..., description="url to fetch conten
                               for p in soup.find_all("span")]
 
             text = truncate_paragraphs(paragraphs, CHAR_LIMIT)
-            print("paragraphs", paragraphs)
-            print(text)
             text = " ".join(text)
 
             for p in soup.find_all("p"):
