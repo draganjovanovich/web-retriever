@@ -3,3 +3,4 @@ uvicorn
 httpx
 beautifulsoup4
 PyPDF2
+pyyaml
